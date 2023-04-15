@@ -15,10 +15,10 @@ app.use('/', router);
 
 const PORT = process.env.PORT || 8000;
 
-
+app.use(express.static(path.join(_ _dirname,'./client/build'))
 
 app.get('/',function(req,res){
-    res.sendHeader("Access-Control-Allow-Credentials","true")
+    res.sendFile(path.join(_ _dirname,'./client/build/index.html');
 });
 
 DBConnection();
