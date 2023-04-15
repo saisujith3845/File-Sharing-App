@@ -10,9 +10,12 @@ export const uploadImage = async (request, response) => {
         name: request.file.originalname,
     }
     
+    const USERNAME = process.env.DB_USERNAME;
+    const PASSWORD = process.env.DB_PASSWORD;
+
     try {
         const file = await File.create(fileObj);
-        response.status(200).json({ path: `http://localhost:${process.env.PORT}/file/${file._id}`});
+        response.status(200).json({ path: ``mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.lk89njf.mongodb.net/?retryWrites=true&w=majority`/file/${file._id}`});
     } catch (error) {
         console.error(error.message);
         response.status(500).json({ error: error.message });
